@@ -1,4 +1,4 @@
-name: dataset-processor2
+name: dataset-processor
 channels:
   - pytorch
   - defaults

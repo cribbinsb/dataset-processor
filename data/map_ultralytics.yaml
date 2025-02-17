@@ -4,7 +4,7 @@ classes:
     - person
     - vehicle
 datasets:
-    - /mldata/coco-v2/dataset.yaml
+    - /mldata/v5-attr/coco-v5-attr/dataset.yaml
 models:
     - /mldata/weights/yolov9c.pt 
     - /mldata/weights/yolov9e.pt
