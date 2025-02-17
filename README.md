@@ -35,13 +35,13 @@ Set up your conda environment as normal:
 
 Generating a dataset:
 
-**python build_dataset.py --config data/dataset_test.json**
+**python build_dataset.py --config data/dataset_test.yml**
 
 Generating mAP results:
 
-**python map.py --config data/map_ultralytics.json**
+**python map.py --config data/map_ultralytics.yml**
 
-In each case the json condif files contains numerous changable parameters. Hopefully it's obvious as I am too lazy to document....
+In each case the yaml/json config files contains numerous changable parameters. Hopefully it's obvious as I am too lazy to document....
 
 ## License
 
