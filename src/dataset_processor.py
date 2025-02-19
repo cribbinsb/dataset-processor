@@ -284,10 +284,13 @@ class DatasetProcessor:
             self.yolo_class_names=[self.yolo.names[i] for i in range(len(self.yolo.names))]
         self.yolo_cache={}
 
-        if type(self.yolo) is list:
-            self.yolo_num_params = sum(p.numel() for p in self.yolo[0].model.parameters())
-        else:
-            self.yolo_num_params = sum(p.numel() for p in self.yolo.model.parameters())
+        try:
+            if type(self.yolo) is list:
+                self.yolo_num_params = sum(p.numel() for p in self.yolo[0].model.parameters())
+            else:
+                self.yolo_num_params = sum(p.numel() for p in self.yolo.model.parameters())
+        except AttributeError:
+            self.yolo_num_params = 0
 
         # map the detected classes back to our class set
         # assume if our class set has things like 'vehicle' then we would want any standard
