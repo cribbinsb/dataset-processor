@@ -44,7 +44,7 @@ def smooth(y, f=0.05):
     yp = np.concatenate((p * y[0], y, p * y[-1]), 0)  # y padded
     return np.convolve(yp, np.ones(nf) / nf, mode="valid")  # y-smoothed
 
-def ap_calc(conf, tp, pred_cls, target_cls, nc, min_gt=500):
+def ap_calc(conf, tp, pred_cls, target_cls, nc, min_gt=500, pr_curves=False):
     conf=np.array(conf)
     tp=np.array(tp)
     pred_cls=np.array(pred_cls)
@@ -103,4 +103,6 @@ def ap_calc(conf, tp, pred_cls, target_cls, nc, min_gt=500):
             p[i]=0
             r[i]=0
 
+    if pr_curves:
+        return ap, p, r, p_curve, r_curve
     return ap, p, r
